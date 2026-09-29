@@ -32,17 +32,20 @@ body{margin:0;background:radial-gradient(circle at 85% 0%,#10233b 0,#07111f 33%,
 .metric span{display:block;color:var(--muted);font-size:11px}
 .metric b{display:block;font-size:24px;margin-top:7px}
 .main{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;margin-top:14px}
-.chart{height:310px}
+.chart{height:270px}
 .sectionTitle{display:flex;justify-content:space-between;gap:15px;align-items:center;margin-bottom:12px}
 .sectionTitle h2{font-size:17px;margin:0}
 .chips{display:flex;gap:8px;flex-wrap:wrap}.chip{padding:6px 9px;border:1px solid var(--border);border-radius:999px;font-size:10px;color:var(--muted)}
-.bridge{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;align-items:end;height:245px}
-.bitem{display:flex;flex-direction:column;justify-content:end;height:100%;gap:6px}
-.bbar{border-radius:8px 8px 0 0;background:#18314c;min-height:36px}
-.bbar.neg{background:linear-gradient(180deg,#ff8f62,#a6472d)}
-.bbar.pos{background:linear-gradient(180deg,#61d7cb,#2e8d84)}
-.bitem b{font-size:12px;text-align:center}
-.bitem span{font-size:10px;color:var(--muted);text-align:center}
+.bridgeWrap{border:1px solid #20324b;border-radius:16px;padding:18px;background:rgba(9,20,34,.65)}
+.bridge{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;align-items:end;position:relative}
+.bridge:before{content:"";position:absolute;left:4%;right:4%;bottom:66px;height:1px;background:rgba(79,179,255,.14)}
+.bitem{display:flex;flex-direction:column;align-items:center;justify-content:end;height:215px;position:relative}
+.bstem{width:1px;height:18px;background:rgba(79,179,255,.18);margin-bottom:6px}
+.bbar{width:56px;border-radius:10px 10px 4px 4px;background:#18314c;box-shadow:inset 0 0 0 1px rgba(255,255,255,.04)}
+.bbar.neg{background:linear-gradient(180deg,#ff9b70,#bb5535)}
+.bbar.pos{background:linear-gradient(180deg,#64d8cc,#2d8a82)}
+.bitem b{font-size:13px;text-align:center;margin-top:10px}
+.bitem span{font-size:11px;color:var(--muted);text-align:center;margin-top:2px}
 .contracts{display:grid;gap:9px}
 .contract{background:#091421;border:1px solid var(--border);border-radius:13px;padding:12px}
 .contractTop{display:flex;justify-content:space-between;gap:12px}.contract b{font-size:13px}.contract strong{font-size:13px;color:var(--bad)}
@@ -51,12 +54,16 @@ body{margin:0;background:radial-gradient(circle at 85% 0%,#10233b 0,#07111f 33%,
 .insight{margin-top:14px;background:linear-gradient(135deg,#11233b,#0b1726);border:1px solid #234360;border-radius:16px;padding:17px}
 .insight small{color:var(--cyan);font-weight:800;letter-spacing:.12em}.insight h3{margin:7px 0 6px}.insight p{color:var(--muted);font-size:12px;margin:0;line-height:1.5}
 .footer{text-align:right;color:#627991;font-size:10px;margin-top:14px}
-@media(max-width:950px){.hero,.main{grid-template-columns:1fr}}@media(max-width:620px){.heroRight{grid-template-columns:1fr}.bridge{grid-template-columns:repeat(2,1fr);height:auto}}
+@media(max-width:950px){.hero,.main{grid-template-columns:1fr}}
+@media(max-width:620px){
+  .heroRight{grid-template-columns:1fr}
+  .bridge{grid-template-columns:repeat(2,1fr)}
+  .bitem{height:170px}
+}
 </style>
 </head>
 <body>
 <div class="wrap">
-
 <div class="topnav">
   <div class="navleft">
     <a class="navbtn home" href="../../../">⌂ Home</a>
@@ -90,15 +97,48 @@ body{margin:0;background:radial-gradient(circle at 85% 0%,#10233b 0,#07111f 33%,
 
 <div class="main">
   <div class="card">
-    <div class="sectionTitle"><h2>Ponte do desvio no mês</h2><div class="chips"><span class="chip">Orçamento</span><span class="chip">Pressões</span><span class="chip">Realizado</span></div></div>
-    <div class="bridge">
-      <div class="bitem"><div class="bbar" style="height:72%"></div><b>R$ 8,40 mi</b><span>Orçamento</span></div>
-      <div class="bitem"><div class="bbar neg" style="height:32%"></div><b>+184 mil</b><span>Horas extras</span></div>
-      <div class="bitem"><div class="bbar neg" style="height:24%"></div><b>+129 mil</b><span>Terceiros</span></div>
-      <div class="bitem"><div class="bbar neg" style="height:21%"></div><b>+117 mil</b><span>Insumos</span></div>
-      <div class="bitem"><div class="bbar pos" style="height:81%"></div><b>R$ 8,93 mi</b><span>Realizado</span></div>
+    <div class="sectionTitle">
+      <h2>Ponte do desvio no mês</h2>
+      <div class="chips"><span class="chip">Orçamento</span><span class="chip">Pressões</span><span class="chip">Realizado</span></div>
     </div>
-    <div style="height:250px;margin-top:20px"><canvas id="nexaTrend"></canvas></div>
+
+    <div class="bridgeWrap">
+      <div class="bridge">
+        <div class="bitem">
+          <div class="bbar" style="height:138px"></div>
+          <div class="bstem"></div>
+          <b>R$ 8,40 mi</b>
+          <span>Orçamento</span>
+        </div>
+        <div class="bitem">
+          <div class="bbar neg" style="height:76px"></div>
+          <div class="bstem"></div>
+          <b>+184 mil</b>
+          <span>Horas extras</span>
+        </div>
+        <div class="bitem">
+          <div class="bbar neg" style="height:58px"></div>
+          <div class="bstem"></div>
+          <b>+129 mil</b>
+          <span>Terceiros</span>
+        </div>
+        <div class="bitem">
+          <div class="bbar neg" style="height:52px"></div>
+          <div class="bstem"></div>
+          <b>+117 mil</b>
+          <span>Insumos</span>
+        </div>
+        <div class="bitem">
+          <div class="bbar pos" style="height:160px"></div>
+          <div class="bstem"></div>
+          <b>R$ 8,93 mi</b>
+          <span>Realizado</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sectionTitle" style="margin-top:18px"><h2>Evolução do custo realizado</h2></div>
+    <div class="chart"><canvas id="nexaTrend"></canvas></div>
   </div>
 
   <div>
@@ -116,13 +156,26 @@ body{margin:0;background:radial-gradient(circle at 85% 0%,#10233b 0,#07111f 33%,
 </div>
 <div class="footer">Dados fictícios · Case demonstrativo</div>
 </div>
+
 <script>
 new Chart(document.getElementById('nexaTrend'),{
-  data:{labels:['Mar','Abr','Mai','Jun','Jul','Ago'],datasets:[
-    {type:'bar',label:'Custo realizado',data:[7.91,8.02,8.24,8.46,8.59,8.93],backgroundColor:'rgba(77,225,212,.50)',borderRadius:5},
-    {type:'line',label:'Orçamento',data:[7.85,7.96,8.08,8.19,8.28,8.40],borderColor:'#4fb3ff',borderWidth:2.2,tension:.25}
-  ]},
-  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#8da2b8'}}},scales:{x:{grid:{display:false},ticks:{color:'#8da2b8'}},y:{grid:{color:'#152437'},ticks:{color:'#8da2b8'}}}}
+  type:'line',
+  data:{
+    labels:['Mar','Abr','Mai','Jun','Jul','Ago'],
+    datasets:[
+      {label:'Custo realizado',data:[7.91,8.02,8.24,8.46,8.59,8.93],borderColor:'#4de1d4',backgroundColor:'rgba(77,225,212,.12)',fill:true,tension:.25,borderWidth:2.4,pointRadius:3,pointBackgroundColor:'#4de1d4'},
+      {label:'Orçamento',data:[7.85,7.96,8.08,8.19,8.28,8.40],borderColor:'#4fb3ff',borderWidth:2.1,borderDash:[5,5],tension:.25,pointRadius:2,pointBackgroundColor:'#4fb3ff'}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{labels:{color:'#8da2b8'}}},
+    scales:{
+      x:{grid:{display:false},ticks:{color:'#8da2b8'}},
+      y:{grid:{color:'#152437'},ticks:{color:'#8da2b8'}}
+    }
+  }
 });
 </script>
-</body></html>
+</body>
+</html>
