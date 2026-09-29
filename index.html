@@ -3,288 +3,67 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<meta name="description" content="G. Moreira Consultoria — Gestão, análise técnica, inteligência operacional e informação executiva para tomada de decisão."/>
+<meta name="description" content="G. Moreira Consultoria: Gestão, análise técnica, inteligência operacional e informação executiva."/>
 <title>G. Moreira Consultoria | Gestão & Análise Técnica</title>
 <style>
-:root{
-  --bg:#050b13;
-  --bg2:#07111f;
-  --panel:#0b1626;
-  --panel2:#0e1b2d;
-  --border:#1b2b42;
-  --text:#edf4fb;
-  --muted:#8ea2b8;
-  --soft:#b8c7d7;
-  --accent:#4fb3ff;
-  --cyan:#4de1d4;
-  --good:#52d273;
-  --warn:#ffb84d;
-  --shadow:0 24px 70px rgba(0,0,0,.28);
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  color:var(--text);
-  font-family:Inter,Arial,sans-serif;
-  background:
-    radial-gradient(circle at 82% 5%,rgba(79,179,255,.12),transparent 22%),
-    radial-gradient(circle at 12% 25%,rgba(77,225,212,.06),transparent 22%),
-    linear-gradient(180deg,var(--bg2) 0%,var(--bg) 48%,#040910 100%);
-}
-a{color:inherit}
-.wrap{max-width:1180px;margin:auto;padding:0 28px}
-nav{
-  position:sticky;top:0;z-index:20;
-  backdrop-filter:blur(16px);
-  background:rgba(5,11,19,.78);
-  border-bottom:1px solid rgba(255,255,255,.055);
-}
-.navin{height:74px;display:flex;align-items:center;justify-content:space-between;gap:28px}
-.brand{font-size:18px;font-weight:800;letter-spacing:-.02em;text-decoration:none}
-.brand span{color:var(--accent)}
-.links{display:flex;gap:24px;align-items:center}
-.links a{text-decoration:none;color:var(--muted);font-size:13px}
-.links a:hover{color:var(--text)}
-.contactBtn{padding:10px 14px!important;border:1px solid #315274;border-radius:10px;color:var(--text)!important;background:rgba(79,179,255,.06)}
-.hero{padding:104px 0 82px;display:grid;grid-template-columns:1.12fr .88fr;gap:48px;align-items:center}
-.kicker{font-size:12px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);font-weight:800}
-h1{font-size:64px;line-height:1.01;letter-spacing:-.052em;margin:16px 0 22px;max-width:820px}
-.lead{font-size:19px;color:#acbac9;max-width:760px;line-height:1.62}
-.heroActions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-.btn{display:inline-block;text-decoration:none;padding:12px 16px;border-radius:11px;font-size:13px;font-weight:800}
-.btnPrimary{background:var(--accent);color:#04101c}
-.btnSecondary{border:1px solid var(--border);color:#dce7f2;background:rgba(13,26,44,.62)}
-.heroPanel{
-  border:1px solid #20334e;border-radius:24px;padding:24px;
-  background:linear-gradient(180deg,rgba(14,29,48,.98),rgba(8,18,30,.98));
-  box-shadow:var(--shadow);position:relative;overflow:hidden
-}
-.heroPanel:after{
-  content:"";position:absolute;width:210px;height:210px;right:-70px;top:-70px;border-radius:50%;
-  background:radial-gradient(circle,rgba(79,179,255,.18),transparent 70%);
-}
-.heroPanel small{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.14em}
-.heroPanel h3{font-size:23px;margin:10px 0 8px;max-width:360px}
-.heroPanel p{color:var(--muted);font-size:14px;margin:0 0 18px}
-.miniGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.mini{
-  border:1px solid var(--border);background:#091421;border-radius:13px;padding:13px;position:relative;z-index:1
-}
-.mini b{display:block;font-size:19px;margin-bottom:3px}
-.mini span{color:var(--muted);font-size:11px}
-.section{padding:74px 0;border-top:1px solid rgba(255,255,255,.055)}
-.sectionHead{display:grid;grid-template-columns:.42fr 1.58fr;gap:38px;margin-bottom:34px}
-.sectionIndex{color:var(--accent);font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase}
-.sectionHead h2{font-size:35px;line-height:1.08;letter-spacing:-.035em;margin:0 0 12px}
-.sectionHead p{margin:0;color:var(--muted);max-width:760px}
-.serviceGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.service{
-  border:1px solid var(--border);background:linear-gradient(180deg,#0c1828,#09131f);
-  border-radius:17px;padding:21px;min-height:176px
-}
-.serviceNum{font-size:11px;color:var(--accent);font-weight:800;letter-spacing:.12em}
-.service h3{font-size:18px;margin:12px 0 8px}.service p{font-size:13px;color:var(--muted);margin:0}
-.casesGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.case{
-  min-height:360px;border:1px solid #20324b;border-radius:22px;overflow:hidden;
-  background:linear-gradient(180deg,#0d1b2e,#08121f);display:flex;flex-direction:column;
-  box-shadow:0 18px 50px rgba(0,0,0,.18)
-}
-.caseTop{padding:22px 22px 18px;position:relative;overflow:hidden}
-.caseTop:after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;right:-65px;top:-65px;background:radial-gradient(circle,rgba(79,179,255,.16),transparent 70%)}
-.caseLabel{font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--accent);font-weight:800}
-.case h3{font-size:25px;margin:10px 0 8px}.case p{color:var(--muted);font-size:14px;margin:0;max-width:480px}
-.caseMetrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:0 22px 20px}
-.caseMetric{border:1px solid var(--border);border-radius:12px;background:#091421;padding:11px}
-.caseMetric b{display:block;font-size:16px}.caseMetric span{font-size:10px;color:var(--muted)}
-.caseActions{margin-top:auto;border-top:1px solid var(--border);padding:16px 22px;display:flex;gap:14px;flex-wrap:wrap}
-.caseActions a{text-decoration:none;font-size:12px;font-weight:800}
-.caseActions .primary{color:var(--accent)}.caseActions .secondary{color:#b9c8d7}
-.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.step{border-top:2px solid #244361;padding-top:14px}.step b{font-size:14px}.step p{font-size:12px;color:var(--muted);margin:7px 0 0}
-.callout{
-  border:1px solid #274766;background:linear-gradient(135deg,#0e2138,#091522);
-  border-radius:22px;padding:34px;display:grid;grid-template-columns:1.4fr .6fr;gap:26px;align-items:center
-}
-.callout h2{font-size:31px;line-height:1.1;margin:0 0 10px}.callout p{color:var(--muted);margin:0}
-.contact{text-align:right;font-size:13px;color:#b9c8d7}.contact b{display:block;color:var(--text);font-size:17px;margin-bottom:5px}
+:root{--bg:#050b13;--bg2:#07111f;--panel:#0b1626;--border:#1b2b42;--text:#edf4fb;--muted:#8ea2b8;--accent:#4fb3ff;--cyan:#4de1d4}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;color:var(--text);font-family:Inter,Arial,sans-serif;background:radial-gradient(circle at 82% 5%,rgba(79,179,255,.12),transparent 22%),radial-gradient(circle at 12% 25%,rgba(77,225,212,.06),transparent 22%),linear-gradient(180deg,var(--bg2) 0%,var(--bg) 48%,#040910 100%)}
+a{color:inherit}.wrap{max-width:1180px;margin:auto;padding:0 28px}
+nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(16px);background:rgba(5,11,19,.78);border-bottom:1px solid rgba(255,255,255,.055)}
+.navin{height:74px;display:flex;align-items:center;justify-content:space-between;gap:28px}.brand{font-size:18px;font-weight:800;letter-spacing:-.02em;text-decoration:none}.brand span{color:var(--accent)}
+.links{display:flex;gap:24px;align-items:center}.links a{text-decoration:none;color:var(--muted);font-size:13px}.links a:hover{color:var(--text)}.contactBtn{padding:10px 14px!important;border:1px solid #315274;border-radius:10px;color:var(--text)!important;background:rgba(79,179,255,.06)}
+.hero{padding:104px 0 82px;display:grid;grid-template-columns:1.12fr .88fr;gap:48px;align-items:center}.kicker{font-size:12px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);font-weight:800}
+h1{font-size:64px;line-height:1.01;letter-spacing:-.052em;margin:16px 0 22px;max-width:820px}.lead{font-size:19px;color:#acbac9;max-width:760px;line-height:1.62}
+.heroActions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-block;text-decoration:none;padding:12px 16px;border-radius:11px;font-size:13px;font-weight:800}.btnPrimary{background:var(--accent);color:#04101c}.btnSecondary{border:1px solid var(--border);color:#dce7f2;background:rgba(13,26,44,.62)}
+.heroPanel{border:1px solid #20334e;border-radius:24px;padding:24px;background:linear-gradient(180deg,rgba(14,29,48,.98),rgba(8,18,30,.98));box-shadow:0 24px 70px rgba(0,0,0,.28);position:relative;overflow:hidden}
+.heroPanel:after{content:"";position:absolute;width:210px;height:210px;right:-70px;top:-70px;border-radius:50%;background:radial-gradient(circle,rgba(79,179,255,.18),transparent 70%)}
+.heroPanel small{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.14em}.heroPanel h3{font-size:23px;margin:10px 0 8px;max-width:360px}.heroPanel p{color:var(--muted);font-size:14px;margin:0 0 18px}
+.miniGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.mini{border:1px solid var(--border);background:#091421;border-radius:13px;padding:13px;position:relative;z-index:1}.mini b{display:block;font-size:19px;margin-bottom:3px}.mini span{color:var(--muted);font-size:11px}
+.section{padding:74px 0;border-top:1px solid rgba(255,255,255,.055)}.sectionHead{display:grid;grid-template-columns:.42fr 1.58fr;gap:38px;margin-bottom:34px}.sectionIndex{color:var(--accent);font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase}
+.sectionHead h2{font-size:35px;line-height:1.08;letter-spacing:-.035em;margin:0 0 12px}.sectionHead p{margin:0;color:var(--muted);max-width:760px}
+.serviceGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.service{border:1px solid var(--border);background:linear-gradient(180deg,#0c1828,#09131f);border-radius:17px;padding:21px;min-height:176px}.serviceNum{font-size:11px;color:var(--accent);font-weight:800;letter-spacing:.12em}.service h3{font-size:18px;margin:12px 0 8px}.service p{font-size:13px;color:var(--muted);margin:0}
+.casesGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.case{min-height:360px;border:1px solid #20324b;border-radius:22px;overflow:hidden;background:linear-gradient(180deg,#0d1b2e,#08121f);display:flex;flex-direction:column;box-shadow:0 18px 50px rgba(0,0,0,.18)}
+.caseTop{padding:22px 22px 18px;position:relative;overflow:hidden}.caseTop:after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;right:-65px;top:-65px;background:radial-gradient(circle,rgba(79,179,255,.16),transparent 70%)}
+.caseLabel{font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--accent);font-weight:800}.case h3{font-size:25px;margin:10px 0 8px}.case p{color:var(--muted);font-size:14px;margin:0;max-width:480px}
+.caseMetrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:0 22px 20px}.caseMetric{border:1px solid var(--border);border-radius:12px;background:#091421;padding:11px}.caseMetric b{display:block;font-size:16px}.caseMetric span{font-size:10px;color:var(--muted)}
+.caseActions{margin-top:auto;border-top:1px solid var(--border);padding:16px 22px;display:flex;gap:14px;flex-wrap:wrap}.caseActions a{text-decoration:none;font-size:12px;font-weight:800}.caseActions .primary{color:var(--accent)}.caseActions .secondary{color:#b9c8d7}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.step{border-top:2px solid #244361;padding-top:14px}.step b{font-size:14px}.step p{font-size:12px;color:var(--muted);margin:7px 0 0}
+.callout{border:1px solid #274766;background:linear-gradient(135deg,#0e2138,#091522);border-radius:22px;padding:34px;display:grid;grid-template-columns:1.4fr .6fr;gap:26px;align-items:center}
+.callout h2{font-size:31px;line-height:1.1;margin:0 0 10px}.callout p{color:var(--muted);margin:0}.contact{text-align:right;font-size:13px;color:#b9c8d7}.contact b{display:block;color:var(--text);font-size:17px;margin-bottom:5px}
 .footer{padding:28px 0 44px;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;gap:20px;color:#60758c;font-size:11px}
-@media(max-width:980px){
-  .hero,.sectionHead,.callout{grid-template-columns:1fr}
-  .serviceGrid{grid-template-columns:1fr 1fr}
-  .flow{grid-template-columns:1fr 1fr}
-  .contact{text-align:left}
-  h1{font-size:50px}
-}
-@media(max-width:700px){
-  .links a:not(.contactBtn){display:none}
-  .hero{padding-top:72px}.heroPanel{margin-top:8px}
-  h1{font-size:41px}
-  .serviceGrid,.casesGrid,.flow{grid-template-columns:1fr}
-  .caseMetrics{grid-template-columns:1fr}
-  .wrap{padding:0 18px}
-  .footer{flex-direction:column}
-}
+@media(max-width:980px){.hero,.sectionHead,.callout{grid-template-columns:1fr}.serviceGrid{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr 1fr}.contact{text-align:left}h1{font-size:50px}}
+@media(max-width:700px){.links a:not(.contactBtn){display:none}.hero{padding-top:72px}.heroPanel{margin-top:8px}h1{font-size:41px}.serviceGrid,.casesGrid,.flow{grid-template-columns:1fr}.caseMetrics{grid-template-columns:1fr}.wrap{padding:0 18px}.footer{flex-direction:column}}
 </style>
 </head>
 <body>
-
-<nav>
-  <div class="wrap navin">
-    <a class="brand" href="./">G. Moreira <span>Consultoria</span></a>
-    <div class="links">
-      <a href="#atuacao">Atuação</a>
-      <a href="#cases">Cases</a>
-      <a href="#metodo">Como trabalho</a>
-      <a class="contactBtn" href="#contato">Contato</a>
-    </div>
-  </div>
-</nav>
-
+<nav><div class="wrap navin"><a class="brand" href="./">G. Moreira <span>Consultoria</span></a><div class="links"><a href="#atuacao">Atuação</a><a href="#cases">Cases</a><a href="#metodo">Como trabalho</a><a class="contactBtn" href="#contato">Contato</a></div></div></nav>
 <main class="wrap">
-  <section class="hero">
-    <div>
-      <div class="kicker">Gestão · Análise Técnica · Inteligência Operacional</div>
-      <h1>Informação executiva para quem precisa decidir melhor.</h1>
-      <p class="lead">
-        Estruturo dados, indicadores e análises para transformar controles dispersos em uma visão gerencial clara,
-        útil e orientada à decisão.
-      </p>
-      <div class="heroActions">
-        <a class="btn btnPrimary" href="#cases">Ver cases demonstrativos</a>
-        <a class="btn btnSecondary" href="#contato">Falar sobre um projeto</a>
-      </div>
-    </div>
+<section class="hero">
+<div><div class="kicker">Gestão · Análise Técnica · Inteligência Operacional</div><h1>Informação executiva para quem precisa decidir melhor.</h1><p class="lead">Estruturo dados, indicadores e análises para transformar controles dispersos em uma visão gerencial clara, útil e orientada à decisão.</p><div class="heroActions"><a class="btn btnPrimary" href="#cases">Ver cases demonstrativos</a><a class="btn btnSecondary" href="#contato">Falar sobre um projeto</a></div></div>
+<div class="heroPanel"><small>O que a gestão precisa enxergar</small><h3>Resultado, desvio, causa e prioridade.</h3><p>A ferramenta é consequência. O trabalho começa pela pergunta de gestão e termina em uma leitura executiva acionável.</p><div class="miniGrid"><div class="mini"><b>KPIs</b><span>Indicadores úteis</span></div><div class="mini"><b>Contratos</b><span>Performance e criticidade</span></div><div class="mini"><b>Custos</b><span>Desvios e margem</span></div><div class="mini"><b>Operação</b><span>Execução e serviço</span></div></div></div>
+</section>
 
-    <div class="heroPanel">
-      <small>O que a gestão precisa enxergar</small>
-      <h3>Resultado, desvio, causa e prioridade.</h3>
-      <p>A ferramenta é consequência. O trabalho começa pela pergunta de gestão e termina em uma leitura executiva acionável.</p>
-      <div class="miniGrid">
-        <div class="mini"><b>KPIs</b><span>Indicadores realmente úteis</span></div>
-        <div class="mini"><b>Contratos</b><span>Performance e criticidade</span></div>
-        <div class="mini"><b>Custos</b><span>Desvios e margem</span></div>
-        <div class="mini"><b>Operação</b><span>Execução e nível de serviço</span></div>
-      </div>
-    </div>
-  </section>
+<section class="section" id="atuacao">
+<div class="sectionHead"><div class="sectionIndex">01 · Atuação</div><div><h2>Não é sobre ter mais dados. É sobre enxergar melhor o que eles dizem.</h2><p>Projetos fechados de estruturação de informação para empresas com operações, contratos, custos, equipes e indicadores.</p></div></div>
+<div class="serviceGrid"><div class="service"><div class="serviceNum">01</div><h3>Inteligência Operacional</h3><p>Indicadores, performance, leitura de desvios e priorização da operação.</p></div><div class="service"><div class="serviceNum">02</div><h3>Gestão de Contratos</h3><p>Faturamento, custos, margem, SLA, glosas, medições e criticidade.</p></div><div class="service"><div class="serviceNum">03</div><h3>Data Design Executivo</h3><p>Dashboards e relatórios com hierarquia visual e foco em decisão.</p></div></div>
+</section>
 
-  <section class="section" id="atuacao">
-    <div class="sectionHead">
-      <div class="sectionIndex">01 · Atuação</div>
-      <div>
-        <h2>Não é sobre ter mais dados. É sobre enxergar melhor o que eles dizem.</h2>
-        <p>Projetos fechados de estruturação de informação para empresas com operações, contratos, custos, equipes e indicadores que precisam ser consolidados e apresentados à gestão.</p>
-      </div>
-    </div>
+<section class="section" id="cases">
+<div class="sectionHead"><div class="sectionIndex">02 · Cases</div><div><h2>Cases demonstrativos</h2><p>Exemplos fictícios construídos para demonstrar abordagem, arquitetura de informação e capacidade de transformar dados operacionais em visão executiva.</p></div></div>
+<div class="casesGrid">
+<article class="case"><div class="caseTop"><div class="caseLabel">Case 01 · Facilities & Contratos</div><h3>Atlas Facilities</h3><p>Gestão de contratos, faturamento, glosas, cobertura operacional, faltas e SLA.</p></div><div class="caseMetrics"><div class="caseMetric"><b>R$ 11,83 mi</b><span>Valor contratado</span></div><div class="caseMetric"><b>97,2%</b><span>Cobertura</span></div><div class="caseMetric"><b>94,8%</b><span>SLA médio</span></div></div><div class="caseActions"><a class="primary" href="cases/atlas-facilities/">Ver case →</a><a class="secondary" href="cases/atlas-facilities/dashboard/">Abrir dashboard</a></div></article>
+<article class="case"><div class="caseTop"><div class="caseLabel">Case 02 · Contratos & Custos</div><h3>Nexa Operações</h3><p>Orçamento, custo realizado, margem, desvios e oportunidades de recuperação.</p></div><div class="caseMetrics"><div class="caseMetric"><b>R$ 8,93 mi</b><span>Custo realizado</span></div><div class="caseMetric"><b>14,7%</b><span>Margem</span></div><div class="caseMetric"><b>R$ 412 mil</b><span>Oportunidade</span></div></div><div class="caseActions"><a class="primary" href="cases/gestao-contratos-custos/">Ver case →</a><a class="secondary" href="cases/gestao-contratos-custos/dashboard/">Abrir dashboard</a></div></article>
+<article class="case"><div class="caseTop"><div class="caseLabel">Case 03 · Performance & SLA</div><h3>Orbe Serviços</h3><p>Performance operacional, cumprimento de SLA, backlog, reincidência e produtividade por unidade.</p></div><div class="caseMetrics"><div class="caseMetric"><b>92,6%</b><span>SLA global</span></div><div class="caseMetric"><b>318</b><span>Chamados abertos</span></div><div class="caseMetric"><b>11,8%</b><span>Reincidência</span></div></div><div class="caseActions"><a class="primary" href="cases/performance-operacional-sla/">Ver case →</a><a class="secondary" href="cases/performance-operacional-sla/dashboard/">Abrir dashboard</a></div></article>
+<article class="case"><div class="caseTop"><div class="caseLabel">Case 04 · Pessoas & Absenteísmo</div><h3>Vértice Serviços</h3><p>Absenteísmo, cobertura, horas extras, afastamentos e impacto operacional por contrato e equipe.</p></div><div class="caseMetrics"><div class="caseMetric"><b>4,8%</b><span>Absenteísmo</span></div><div class="caseMetric"><b>96,1%</b><span>Cobertura</span></div><div class="caseMetric"><b>1.246 h</b><span>Horas extras</span></div></div><div class="caseActions"><a class="primary" href="cases/gestao-pessoas-absenteismo/">Ver case →</a><a class="secondary" href="cases/gestao-pessoas-absenteismo/dashboard/">Abrir dashboard</a></div></article>
 
-    <div class="serviceGrid">
-      <div class="service">
-        <div class="serviceNum">01</div>
-        <h3>Inteligência Operacional</h3>
-        <p>Estruturação de indicadores, acompanhamento de performance, leitura de desvios e priorização da operação.</p>
-      </div>
-      <div class="service">
-        <div class="serviceNum">02</div>
-        <h3>Gestão de Contratos</h3>
-        <p>Visões executivas de faturamento, custos, margem, SLA, glosas, medições e criticidade contratual.</p>
-      </div>
-      <div class="service">
-        <div class="serviceNum">03</div>
-        <h3>Data Design Executivo</h3>
-        <p>Dashboards, relatórios e apresentações desenhados para leitura rápida, hierarquia visual e decisão.</p>
-      </div>
-    </div>
-  </section>
+<article class="case"><div class="caseTop"><div class="caseLabel">Case 05 · Planejamento & Produtividade</div><h3>Prisma Operações</h3><p>Demanda, capacidade, horas extras, produtividade e dimensionamento por equipe e unidade.</p></div><div class="caseMetrics"><div class="caseMetric"><b>12.480 h</b><span>Demanda mensal</span></div><div class="caseMetric"><b>860 h</b><span>Gap de capacidade</span></div><div class="caseMetric"><b>87,4%</b><span>Produtividade</span></div></div><div class="caseActions"><a class="primary" href="cases/planejamento-capacidade-produtividade/">Ver case →</a><a class="secondary" href="cases/planejamento-capacidade-produtividade/dashboard/">Abrir dashboard</a></div></article>
+</div>
+</section>
 
-  <section class="section" id="cases">
-    <div class="sectionHead">
-      <div class="sectionIndex">02 · Cases</div>
-      <div>
-        <h2>Cases demonstrativos</h2>
-        <p>Exemplos fictícios construídos para demonstrar abordagem, arquitetura de informação e capacidade de transformar dados operacionais em visão executiva.</p>
-      </div>
-    </div>
+<section class="section" id="metodo"><div class="sectionHead"><div class="sectionIndex">03 · Como trabalho</div><div><h2>Do problema de gestão à informação que sustenta a decisão.</h2><p>O projeto é estruturado em etapas objetivas, com escopo definido e foco em uma entrega gerencial utilizável.</p></div></div><div class="flow"><div class="step"><b>1. Diagnóstico</b><p>Problema, bases e decisões que precisam ser suportadas.</p></div><div class="step"><b>2. Estruturação</b><p>Dados, regras, indicadores e critérios de análise.</p></div><div class="step"><b>3. Construção</b><p>Visão executiva, análises e arquitetura visual.</p></div><div class="step"><b>4. Entrega</b><p>Validação, leitura gerencial e material final.</p></div></div></section>
 
-    <div class="casesGrid">
-      <article class="case">
-        <div class="caseTop">
-          <div class="caseLabel">Case 01 · Facilities & Contratos</div>
-          <h3>Atlas Facilities</h3>
-          <p>Gestão de contratos, faturamento, glosas, cobertura operacional, faltas e SLA em uma única visão gerencial.</p>
-        </div>
-        <div class="caseMetrics">
-          <div class="caseMetric"><b>R$ 11,83 mi</b><span>Valor contratado</span></div>
-          <div class="caseMetric"><b>97,2%</b><span>Cobertura</span></div>
-          <div class="caseMetric"><b>94,8%</b><span>SLA médio</span></div>
-        </div>
-        <div class="caseActions">
-          <a class="primary" href="cases/atlas-facilities/">Ver case →</a>
-          <a class="secondary" href="cases/atlas-facilities/dashboard/">Abrir dashboard</a>
-        </div>
-      </article>
-
-      <article class="case">
-        <div class="caseTop">
-          <div class="caseLabel">Case 02 · Contratos & Custos</div>
-          <h3>Nexa Operações</h3>
-          <p>Orçamento, custo realizado, margem, desvios por contrato e oportunidades de recuperação financeira.</p>
-        </div>
-        <div class="caseMetrics">
-          <div class="caseMetric"><b>R$ 8,93 mi</b><span>Custo realizado</span></div>
-          <div class="caseMetric"><b>14,7%</b><span>Margem operacional</span></div>
-          <div class="caseMetric"><b>R$ 412 mil</b><span>Oportunidade</span></div>
-        </div>
-        <div class="caseActions">
-          <a class="primary" href="cases/gestao-contratos-custos/">Ver case →</a>
-          <a class="secondary" href="cases/gestao-contratos-custos/dashboard/">Abrir dashboard</a>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section class="section" id="metodo">
-    <div class="sectionHead">
-      <div class="sectionIndex">03 · Como trabalho</div>
-      <div>
-        <h2>Do problema de gestão à informação que sustenta a decisão.</h2>
-        <p>O projeto é estruturado em etapas objetivas, com escopo definido e foco em uma entrega gerencial utilizável.</p>
-      </div>
-    </div>
-
-    <div class="flow">
-      <div class="step"><b>1. Diagnóstico</b><p>Entendimento do problema, bases disponíveis e decisões que precisam ser suportadas.</p></div>
-      <div class="step"><b>2. Estruturação</b><p>Organização dos dados, regras, indicadores e critérios de análise.</p></div>
-      <div class="step"><b>3. Construção</b><p>Desenvolvimento da visão executiva, análises e arquitetura visual.</p></div>
-      <div class="step"><b>4. Entrega</b><p>Validação, leitura gerencial e material final pronto para uso.</p></div>
-    </div>
-  </section>
-
-  <section class="section" id="contato">
-    <div class="callout">
-      <div>
-        <h2>Tem dados, controles e relatórios — mas falta uma visão clara para decidir?</h2>
-        <p>Esse é exatamente o tipo de problema que a consultoria busca organizar.</p>
-      </div>
-      <div class="contact">
-        <b>Greicy Moreira</b>
-        Engenheira de Produção<br/>
-        Gestão | Análise Técnica<br/><br/>
-        <a href="mailto:greicymoreira.consultoria@gmail.com">greicymoreira.consultoria@gmail.com</a><br/>
-        (21) 99997-4197<br/>
-        <a href="https://www.linkedin.com/in/greicy-moreira" target="_blank" rel="noopener">linkedin.com/in/greicy-moreira</a>
-      </div>
-    </div>
-  </section>
+<section class="section" id="contato"><div class="callout"><div><h2>Tem dados, controles e relatórios: mas falta uma visão clara para decidir?</h2><p>Esse é exatamente o tipo de problema que a consultoria busca organizar.</p></div><div class="contact"><b>Greicy Moreira</b>Engenheira de Produção<br/>Gestão | Análise Técnica<br/><br/><a href="mailto:greicymoreira.consultoria@gmail.com">greicymoreira.consultoria@gmail.com</a><br/>(21) 99997-4197<br/><a href="https://www.linkedin.com/in/greicy-moreira" target="_blank" rel="noopener">linkedin.com/in/greicy-moreira</a></div></div></section>
 </main>
-
-<footer>
-  <div class="wrap footer">
-    <span>G. Moreira Consultoria · Rio de Janeiro, RJ</span>
-    <span>Gestão | Análise Técnica</span>
-  </div>
-</footer>
-
-</body>
-</html>
+<footer><div class="wrap footer"><span>G. Moreira Consultoria · Rio de Janeiro, RJ</span><span>Gestão | Análise Técnica</span></div></footer>
+</body></html>

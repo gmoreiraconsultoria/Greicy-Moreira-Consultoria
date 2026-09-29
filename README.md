@@ -1,10 +1,10 @@
-# G. Moreira Consultoria — Site
+# G. Moreira Consultoria: Site
 
-Estrutura publicada:
-- `/index.html`
-- `/cases/atlas-facilities/`
-- `/cases/atlas-facilities/dashboard/`
-- `/cases/gestao-contratos-custos/`
-- `/cases/gestao-contratos-custos/dashboard/`
+Cases publicados:
+1. Atlas Facilities: Facilities & Contratos
+2. Nexa Operações: Gestão de Contratos & Custos
+3. Orbe Serviços: Performance Operacional & SLA
+4. Vértice Serviços: Gestão de Pessoas & Absenteísmo
+5. Prisma Operações: Planejamento, Capacidade & Produtividade
 
-Todos os cases utilizam dados fictícios para demonstração de portfólio.
+Todos os dados são fictícios e utilizados exclusivamente para portfólio.

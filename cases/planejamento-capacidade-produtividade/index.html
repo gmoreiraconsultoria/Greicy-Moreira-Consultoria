@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Planejamento, Capacidade e Produtividade | G. Moreira Consultoria</title>
+<style>
+:root{--bg:#060d16;--panel:#0b1626;--border:#1b2b42;--text:#eef4fb;--muted:#8da0b6;--accent:#4fb3ff}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 78% 0%,rgba(79,179,255,.13),transparent 24%),linear-gradient(180deg,#06101c 0%,#050b13 100%);color:var(--text);font-family:Inter,Arial,sans-serif;line-height:1.5}
+.wrap{max-width:1180px;margin:auto;padding:0 28px}.back{display:inline-block;margin-top:22px;color:var(--accent);text-decoration:none;font-size:13px}
+nav{height:72px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.06)}.logo{font-weight:800}.logo span{color:var(--accent)}.meta{color:var(--muted);font-size:12px}
+.hero{padding:78px 0 56px;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}.kicker{font-size:12px;text-transform:uppercase;letter-spacing:.16em;color:var(--accent);font-weight:800}
+h1{font-size:53px;line-height:1.04;letter-spacing:-.045em;margin:14px 0 20px}.lead{color:#a8b7c8;font-size:18px}
+.tags{display:flex;gap:9px;flex-wrap:wrap;margin-top:24px}.tag{font-size:12px;color:#b9c7d6;border:1px solid var(--border);background:rgba(13,26,44,.68);padding:7px 10px;border-radius:999px}
+.browser{border:1px solid #20324b;border-radius:20px;background:#08121f;box-shadow:0 36px 90px rgba(0,0,0,.38);padding:24px}.browser p{color:var(--muted)}.btn{display:inline-block;margin-top:16px;padding:12px 16px;border-radius:10px;background:var(--accent);color:#04101c;text-decoration:none;font-weight:800}
+.section{padding:68px 0;border-top:1px solid rgba(255,255,255,.055)}.section h2{font-size:32px;margin:0 0 12px}.section>p{color:var(--muted);max-width:790px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:25px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}.story{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:24px}
+.card{border:1px solid var(--border);background:linear-gradient(180deg,#0c1828,#09131f);border-radius:16px;padding:20px}.card p{color:var(--muted);font-size:13px;margin-bottom:0}
+.metric small{color:var(--muted);font-size:11px}.metric strong{display:block;font-size:25px;margin:6px 0}.metric span{font-size:11px;color:var(--muted)}.quote{font-size:25px;line-height:1.3;letter-spacing:-.02em}
+.footer{padding:24px 0 34px;color:#60758c;font-size:11px;border-top:1px solid rgba(255,255,255,.05)}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.grid3,.grid4,.story{grid-template-columns:1fr 1fr}h1{font-size:42px}}
+@media(max-width:580px){.grid3,.grid4,.story{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="../../">← Voltar aos cases</a>
+<nav><div class="logo">G. Moreira <span>Consultoria</span></div><div class="meta">Gestão | Análise Técnica</div></nav>
+
+<section class="hero">
+  <div>
+    <div class="kicker">Case 05 · Planejamento, Capacidade & Produtividade</div>
+    <h1>Da sobrecarga percebida ao dimensionamento objetivo da operação.</h1>
+    <p class="lead">Estruturação de uma visão gerencial para comparar demanda, capacidade disponível, produtividade, horas extras e necessidade real de dimensionamento por equipe e unidade.</p>
+    <div class="tags">
+      <span class="tag">Planejamento</span>
+      <span class="tag">Capacidade</span>
+      <span class="tag">Produtividade</span>
+      <span class="tag">Dimensionamento</span>
+    </div>
+  </div>
+  <div class="browser">
+    <h3>Prisma Operações</h3>
+    <p>Empresa fictícia com múltiplas equipes e unidades, criada para demonstrar análise de demanda, capacidade e produtividade.</p>
+    <a class="btn" href="dashboard/">Abrir dashboard executivo →</a>
+  </div>
+</section>
+
+<section class="section">
+  <h2>O problema de gestão</h2>
+  <div class="grid3">
+    <div class="card"><b>Sobrecarga sem medida</b><p>A percepção de equipe insuficiente não estava conectada a dados de demanda e capacidade.</p></div>
+    <div class="card"><b>Hora extra tratada como rotina</b><p>O custo adicional crescia sem separar pico pontual de déficit estrutural de capacidade.</p></div>
+    <div class="card"><b>Produtividade difícil de comparar</b><p>Equipes com perfis distintos eram avaliadas apenas pelo volume entregue.</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Indicadores centrais</h2>
+  <div class="grid4">
+    <div class="card metric"><small>DEMANDA MENSAL</small><strong>12.480 h</strong><span>Carga operacional estimada</span></div>
+    <div class="card metric"><small>CAPACIDADE REGULAR</small><strong>11.620 h</strong><span>Disponível no mês</span></div>
+    <div class="card metric"><small>GAP DE CAPACIDADE</small><strong>860 h</strong><span>7,4% da capacidade regular</span></div>
+    <div class="card metric"><small>HORAS EXTRAS</small><strong>1.180 h</strong><span>Pressão operacional no período</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>A leitura gerencial foi desenhada para responder.</h2>
+  <div class="story">
+    <div class="card"><b>1. A demanda supera a capacidade?</b><p>Comparação direta por unidade, turno e período.</p></div>
+    <div class="card"><b>2. Onde a sobrecarga está concentrada?</b><p>Ranking de equipes com maior gap entre demanda e capacidade.</p></div>
+    <div class="card"><b>3. Hora extra resolve ou apenas mascara o problema?</b><p>Separação entre picos temporários e déficit recorrente.</p></div>
+    <div class="card"><b>4. Onde existe ganho de produtividade?</b><p>Comparação entre carga, horas disponíveis e entrega realizada.</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="card"><div class="quote">“Dimensionar melhor não significa simplesmente aumentar equipe. Significa entender onde falta capacidade, onde sobra recurso e onde o processo precisa melhorar.”</div></div>
+</section>
+
+<div class="footer">Case demonstrativo. Empresa, equipes, unidades e valores são fictícios e utilizados exclusivamente para fins de portfólio.</div>
+</div>
+</body>
+</html>
