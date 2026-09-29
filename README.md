@@ -1,3 +1,10 @@
-# G. Moreira Consultoria — site estático
+# G. Moreira Consultoria — Site
 
-Pronto para publicação em GitHub Pages, Netlify, Cloudflare Pages, Vercel ou hospedagem cPanel.
+Estrutura publicada:
+- `/index.html`
+- `/cases/atlas-facilities/`
+- `/cases/atlas-facilities/dashboard/`
+- `/cases/gestao-contratos-custos/`
+- `/cases/gestao-contratos-custos/dashboard/`
+
+Todos os cases utilizam dados fictícios para demonstração de portfólio.
