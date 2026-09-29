@@ -1,32 +1,107 @@
 <!DOCTYPE html>
-<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Orbe Serviços | Performance Operacional</title><script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Orbe Serviços | Performance Operacional</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
-
 :root{
-  --brand-bg:#07111f;--brand-panel:#0b1626;--brand-border:#1b2b42;
-  --brand-text:#edf4fb;--brand-muted:#8fa4b9;--brand-accent:#4fb3ff;
+ --bg:#07111f;--panel:#0c1828;--panel2:#0a1422;--border:#1c2d44;
+ --text:#eef4fb;--muted:#8da2b8;--accent:#4fb3ff;--teal:#4de1d4;
+ --good:#52d273;--warn:#ffb84d;--bad:#ff6b6b;
 }
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#07111f,#050b13);color:var(--text);font-family:Inter,Arial,sans-serif}
+.wrap{max-width:1460px;margin:auto;padding:24px}
 .topnav{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:18px;flex-wrap:wrap}
 .navleft{display:flex;gap:8px;flex-wrap:wrap}
 .navbtn{display:inline-block;text-decoration:none;font-size:12px;font-weight:800;padding:8px 11px;border-radius:9px}
-.navbtn.home{background:var(--brand-accent);color:#04101c}
-.navbtn.back{border:1px solid var(--brand-border);color:var(--brand-accent);background:rgba(255,255,255,.02)}
-.brandmark{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--brand-muted)}
+.navbtn.home{background:var(--accent);color:#04101c}
+.navbtn.back{border:1px solid var(--border);color:var(--accent);background:rgba(255,255,255,.02)}
+.brandmark{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.header{display:flex;justify-content:space-between;align-items:end;gap:20px;padding:8px 0 18px}
+.header h1{font-size:34px;margin:5px 0;letter-spacing:-.035em}.eyebrow{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);font-weight:800}.muted{color:var(--muted)}.period{font-size:12px;color:var(--muted)}
+.scoreRow{display:grid;grid-template-columns:1.2fr repeat(3,.6fr);gap:10px;margin-bottom:14px}
+.score{background:linear-gradient(180deg,#0d1a2c,#091320);border:1px solid var(--border);border-radius:16px;padding:17px}.score.big b{font-size:44px}.score span{display:block;color:var(--muted);font-size:11px}.score b{display:block;font-size:25px;margin-top:7px}
+.main{display:grid;grid-template-columns:1.05fr .95fr;gap:14px}
+.panel{background:linear-gradient(180deg,#0d1a2c,#091320);border:1px solid var(--border);border-radius:18px;padding:18px}
+.panel h2{font-size:17px;margin:0 0 4px}.sub{color:var(--muted);font-size:11px;margin-bottom:12px}
+.matrix{display:grid;grid-template-columns:145px repeat(4,1fr);gap:7px}.cell{padding:11px 8px;border-radius:9px;border:1px solid #213149;text-align:center;font-size:11px}.label{text-align:left;background:#091421;color:#a9b8c7}.g{background:#123326;color:#bce8cc}.a{background:#3f3218;color:#ffd990}.r{background:#402126;color:#ffbec3}
+.chart{height:270px}
+.issueGrid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px}.issue{background:#091421;border:1px solid var(--border);border-radius:12px;padding:12px}.issue small{color:var(--muted)}.issue b{display:block;margin-top:5px}.bad{color:var(--bad)}.warn{color:var(--warn)}
+.footer{text-align:right;color:#627991;font-size:10px;margin-top:14px}
+@media(max-width:950px){.scoreRow{grid-template-columns:1fr 1fr}.main{grid-template-columns:1fr}}@media(max-width:650px){.matrix{grid-template-columns:1fr 1fr}.issueGrid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
 
-*{box-sizing:border-box}body{margin:0;background:#0b1117;color:#e8edf2;font-family:Inter,Arial,sans-serif}.wrap{max-width:1450px;margin:auto;padding:24px}.topnav .brandmark{color:#82909b}
-.header{display:flex;justify-content:space-between;align-items:end;padding:12px 0 18px;border-bottom:1px solid #26313b}.live{color:#b8dc62;font-size:11px;letter-spacing:.12em;font-weight:800}.header h1{margin:5px 0 5px;font-size:31px}.muted{color:#8e9aa6}
-.strip{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:14px 0}.tile{background:#121920;border:1px solid #26313b;padding:14px}.tile span{display:block;color:#8e9aa6;font-size:10px}.tile b{display:block;font-size:23px;margin-top:7px}.tile.bad b{color:#ff6c6c}
-.main{display:grid;grid-template-columns:.9fr 1.1fr;gap:12px}.panel{background:#121920;border:1px solid #26313b;padding:16px}.panel h2{font-size:15px;margin:0 0 12px}
-.heat{display:grid;grid-template-columns:120px repeat(4,1fr);gap:6px;align-items:stretch}.cell{padding:12px 8px;border-radius:8px;text-align:center;font-size:12px;border:1px solid #2a3540}.label{text-align:left;color:#9aa6b0;background:#0e151b}.g{background:#173a2a;color:#b9efca}.a{background:#4a3a18;color:#ffd27c}.r{background:#4a2225;color:#ffb1b6}.chart{height:260px}
-.queue{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}.q{background:#0e151b;border-left:3px solid #f0b44d;padding:11px}.q.red{border-left-color:#ff6c6c}.q b{font-size:12px}.q span{display:block;color:#8e9aa6;font-size:11px;margin-top:3px}
-@media(max-width:900px){.strip{grid-template-columns:1fr 1fr}.main{grid-template-columns:1fr}.heat{grid-template-columns:100px repeat(4,1fr)}}@media(max-width:620px){.heat{grid-template-columns:1fr 1fr}.queue{grid-template-columns:1fr}}
-</style></head><body><div class="wrap">
-<div class="topnav"><div class="navleft"><a class="navbtn home" href="../../../">⌂ Home</a><a class="navbtn back" href="../">← Voltar ao case</a></div><div class="brandmark">G. Moreira Consultoria</div></div>
-<div class="header"><div><div class="live">● PERFORMANCE OPERACIONAL</div><h1>Orbe Serviços | SLA e Qualidade</h1><div class="muted">Uma leitura de prazo, backlog, reincidência e produtividade.</div></div><div class="live">AGO/2026</div></div>
-<div class="strip"><div class="tile bad"><span>SLA GLOBAL</span><b>92,6%</b></div><div class="tile"><span>META</span><b>95,0%</b></div><div class="tile"><span>BACKLOG</span><b>318</b></div><div class="tile"><span>REINCIDÊNCIA</span><b>11,8%</b></div><div class="tile"><span>PRODUTIVIDADE</span><b>7,4/dia</b></div></div>
-<div class="main"><div class="panel"><h2>Heatmap de performance por unidade</h2><div class="heat"><div class="cell label"></div><div class="cell label">SLA</div><div class="cell label">Backlog</div><div class="cell label">Reincid.</div><div class="cell label">Produt.</div><div class="cell label">Norte</div><div class="cell r">87,9%</div><div class="cell r">84</div><div class="cell r">16,4%</div><div class="cell a">6,2</div><div class="cell label">Centro</div><div class="cell r">89,1%</div><div class="cell r">72</div><div class="cell a">13,2%</div><div class="cell a">6,8</div><div class="cell label">Oeste</div><div class="cell a">92,4%</div><div class="cell a">51</div><div class="cell a">10,9%</div><div class="cell g">7,6</div><div class="cell label">Sul</div><div class="cell g">96,8%</div><div class="cell g">23</div><div class="cell g">6,1%</div><div class="cell g">8,3</div></div></div>
-<div class="panel"><h2>Evolução do SLA</h2><div class="chart"><canvas id="orbeChart"></canvas></div><div class="queue"><div class="q red"><b>Chamados acima de 72h</b><span>84 ocorrências</span></div><div class="q red"><b>Reabertura técnica</b><span>37 chamados</span></div><div class="q"><b>Unidade Norte</b><span>46% do backlog vencido</span></div><div class="q"><b>Equipe 04</b><span>Produtividade 18% abaixo da média</span></div></div></div></div></div>
+<div class="topnav">
+  <div class="navleft">
+    <a class="navbtn home" href="../../../">⌂ Home</a>
+    <a class="navbtn back" href="../">← Voltar ao case</a>
+  </div>
+  <div class="brandmark">G. Moreira Consultoria</div>
+</div>
+
+<div class="header">
+  <div>
+    <div class="eyebrow">Orbe Serviços · Performance Operacional</div>
+    <h1>SLA, Backlog e Qualidade de Execução</h1>
+    <div class="muted">Uma leitura por unidade para localizar exatamente onde a operação perde qualidade.</div>
+  </div>
+  <div class="period">Competência: <b>Ago/2026</b></div>
+</div>
+
+<div class="scoreRow">
+  <div class="score big"><span>SLA global</span><b>92,6%</b><span>Meta: 95,0%</span></div>
+  <div class="score"><span>Backlog</span><b>318</b></div>
+  <div class="score"><span>Reincidência</span><b>11,8%</b></div>
+  <div class="score"><span>Produtividade</span><b>7,4/dia</b></div>
+</div>
+
+<div class="main">
+  <div class="panel">
+    <h2>Matriz de performance por unidade</h2>
+    <div class="sub">Verde indica condição controlada, âmbar exige atenção e vermelho requer ação prioritária.</div>
+    <div class="matrix">
+      <div class="cell label"></div><div class="cell label">SLA</div><div class="cell label">Backlog</div><div class="cell label">Reincidência</div><div class="cell label">Produtividade</div>
+      <div class="cell label">Unidade Norte</div><div class="cell r">87,9%</div><div class="cell r">84</div><div class="cell r">16,4%</div><div class="cell a">6,2</div>
+      <div class="cell label">Unidade Centro</div><div class="cell r">89,1%</div><div class="cell r">72</div><div class="cell a">13,2%</div><div class="cell a">6,8</div>
+      <div class="cell label">Unidade Oeste</div><div class="cell a">92,4%</div><div class="cell a">51</div><div class="cell a">10,9%</div><div class="cell g">7,6</div>
+      <div class="cell label">Unidade Sul</div><div class="cell g">96,8%</div><div class="cell g">23</div><div class="cell g">6,1%</div><div class="cell g">8,3</div>
+    </div>
+
+    <div class="issueGrid">
+      <div class="issue"><small>Maior problema</small><b class="bad">84 chamados acima de 72h</b></div>
+      <div class="issue"><small>Retrabalho</small><b class="bad">37 chamados reabertos</b></div>
+      <div class="issue"><small>Concentração</small><b class="warn">46% do backlog na Unidade Norte</b></div>
+      <div class="issue"><small>Produtividade</small><b class="warn">Equipe 04 está 18% abaixo da média</b></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Tendência do SLA</h2>
+    <div class="sub">Queda contínua nos últimos seis meses, apesar de meta estável.</div>
+    <div class="chart"><canvas id="orbeTrend"></canvas></div>
+    <div style="margin-top:14px;padding:14px;border:1px solid var(--border);border-radius:12px;background:#091421">
+      <div class="eyebrow" style="color:var(--warn)">LEITURA EXECUTIVA</div>
+      <h3 style="margin:7px 0 6px">O problema não está distribuído</h3>
+      <div class="muted" style="font-size:12px;line-height:1.5">Norte e Centro concentram atraso e reincidência. Sul opera acima da meta e funciona como referência comparável para investigar diferença de processo e produtividade.</div>
+    </div>
+  </div>
+</div>
+<div class="footer">Dados fictícios · Case demonstrativo</div>
+</div>
 <script>
-new Chart(document.getElementById('orbeChart'),{type:'line',data:{labels:['Mar','Abr','Mai','Jun','Jul','Ago'],datasets:[{label:'SLA',data:[94.1,93.8,93.4,92.9,92.7,92.6],borderColor:'#b8dc62',backgroundColor:'rgba(184,220,98,.08)',fill:true,tension:.25},{label:'Meta',data:[95,95,95,95,95,95],borderColor:'#62a8ff',borderDash:[5,5],pointRadius:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#8e9aa6'}}},scales:{x:{ticks:{color:'#8e9aa6'},grid:{color:'#1c252e'}},y:{ticks:{color:'#8e9aa6'},grid:{color:'#1c252e'}}}}});
-</script></body></html>
+new Chart(document.getElementById('orbeTrend'),{
+  type:'line',
+  data:{labels:['Mar','Abr','Mai','Jun','Jul','Ago'],datasets:[
+    {label:'SLA',data:[94.1,93.8,93.4,92.9,92.7,92.6],borderColor:'#4de1d4',backgroundColor:'rgba(77,225,212,.08)',fill:true,tension:.25,borderWidth:2.3},
+    {label:'Meta',data:[95,95,95,95,95,95],borderColor:'#4fb3ff',borderDash:[5,5],pointRadius:0}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#8da2b8'}}},scales:{x:{grid:{display:false},ticks:{color:'#8da2b8'}},y:{grid:{color:'#152437'},ticks:{color:'#8da2b8'}}}}
+});
+</script>
+</body></html>

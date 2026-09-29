@@ -1,32 +1,128 @@
 <!DOCTYPE html>
-<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nexa Operações | Board Financeiro</title><script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Nexa Operações | Gestão Financeira de Contratos</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
-
 :root{
-  --brand-bg:#07111f;--brand-panel:#0b1626;--brand-border:#1b2b42;
-  --brand-text:#edf4fb;--brand-muted:#8fa4b9;--brand-accent:#4fb3ff;
+ --bg:#07111f;--panel:#0c1828;--panel2:#0a1422;--border:#1c2d44;
+ --text:#eef4fb;--muted:#8da2b8;--accent:#4fb3ff;--cyan:#4de1d4;
+ --warn:#ffb84d;--bad:#ff6b6b;--good:#52d273;
 }
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 85% 0%,#10233b 0,#07111f 33%,#050b13 100%);color:var(--text);font-family:Inter,Arial,sans-serif}
+.wrap{max-width:1480px;margin:auto;padding:24px}
 .topnav{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:18px;flex-wrap:wrap}
 .navleft{display:flex;gap:8px;flex-wrap:wrap}
 .navbtn{display:inline-block;text-decoration:none;font-size:12px;font-weight:800;padding:8px 11px;border-radius:9px}
-.navbtn.home{background:var(--brand-accent);color:#04101c}
-.navbtn.back{border:1px solid var(--brand-border);color:var(--brand-accent);background:rgba(255,255,255,.02)}
-.brandmark{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--brand-muted)}
+.navbtn.home{background:var(--accent);color:#04101c}
+.navbtn.back{border:1px solid var(--border);color:var(--accent);background:rgba(255,255,255,.02)}
+.brandmark{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.header{display:flex;justify-content:space-between;align-items:end;gap:20px;padding:8px 0 18px}
+.header h1{font-size:34px;margin:5px 0 5px;letter-spacing:-.035em}
+.eyebrow{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--cyan);font-weight:800}
+.muted{color:var(--muted)}.period{font-size:12px;color:var(--muted)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}
+.card{background:linear-gradient(180deg,#0d1a2c,#091320);border:1px solid var(--border);border-radius:18px;padding:20px}
+.big{font-size:48px;font-weight:800;letter-spacing:-.04em;margin:8px 0}
+.heroRight{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.metric{background:#0a1422;border:1px solid var(--border);border-radius:14px;padding:15px}
+.metric span{display:block;color:var(--muted);font-size:11px}
+.metric b{display:block;font-size:24px;margin-top:7px}
+.main{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;margin-top:14px}
+.chart{height:310px}
+.sectionTitle{display:flex;justify-content:space-between;gap:15px;align-items:center;margin-bottom:12px}
+.sectionTitle h2{font-size:17px;margin:0}
+.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{padding:6px 9px;border:1px solid var(--border);border-radius:999px;font-size:10px;color:var(--muted)}
+.bridge{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;align-items:end;height:245px}
+.bitem{display:flex;flex-direction:column;justify-content:end;height:100%;gap:6px}
+.bbar{border-radius:8px 8px 0 0;background:#18314c;min-height:36px}
+.bbar.neg{background:linear-gradient(180deg,#ff8f62,#a6472d)}
+.bbar.pos{background:linear-gradient(180deg,#61d7cb,#2e8d84)}
+.bitem b{font-size:12px;text-align:center}
+.bitem span{font-size:10px;color:var(--muted);text-align:center}
+.contracts{display:grid;gap:9px}
+.contract{background:#091421;border:1px solid var(--border);border-radius:13px;padding:12px}
+.contractTop{display:flex;justify-content:space-between;gap:12px}.contract b{font-size:13px}.contract strong{font-size:13px;color:var(--bad)}
+.contract small{display:block;color:var(--muted);margin-top:4px}
+.progress{height:6px;background:#152337;border-radius:99px;overflow:hidden;margin-top:9px}.fill{height:100%;background:linear-gradient(90deg,#4fb3ff,#4de1d4)}
+.insight{margin-top:14px;background:linear-gradient(135deg,#11233b,#0b1726);border:1px solid #234360;border-radius:16px;padding:17px}
+.insight small{color:var(--cyan);font-weight:800;letter-spacing:.12em}.insight h3{margin:7px 0 6px}.insight p{color:var(--muted);font-size:12px;margin:0;line-height:1.5}
+.footer{text-align:right;color:#627991;font-size:10px;margin-top:14px}
+@media(max-width:950px){.hero,.main{grid-template-columns:1fr}}@media(max-width:620px){.heroRight{grid-template-columns:1fr}.bridge{grid-template-columns:repeat(2,1fr);height:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
 
-*{box-sizing:border-box}body{margin:0;background:#f4f1ea;color:#1f2a33;font-family:Inter,Arial,sans-serif}.wrap{max-width:1420px;margin:auto;padding:28px}
-.topnav .brandmark{color:#6f7a82}.header{display:flex;justify-content:space-between;gap:20px;align-items:end;border-bottom:1px solid #ded8ce;padding:14px 0 20px}.header h1{font-family:Georgia,serif;font-size:39px;margin:6px 0}.muted{color:#6f7a82}.eyebrow{color:#a1532d;font-size:11px;letter-spacing:.15em;font-weight:800}
-.summary{display:grid;grid-template-columns:1.25fr repeat(3,.58fr);background:#fffdf8;border:1px solid #ded8ce;margin:20px 0}.s{padding:20px;border-right:1px solid #ded8ce}.s:last-child{border:0}.s small{color:#6f7a82}.s b{display:block;font-size:30px;margin-top:7px}.s.hero b{font-family:Georgia,serif;font-size:45px;color:#a1532d}
-.layout{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}.panel{background:#fffdf8;border:1px solid #ded8ce;padding:20px}.panel h2{font-family:Georgia,serif;margin:0 0 5px}.chart{height:285px}
-.waterfall{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;align-items:end;height:230px;margin-top:18px}.wf{display:flex;flex-direction:column;justify-content:end;gap:6px;height:100%}.bar{border-radius:8px 8px 0 0;background:#17324d;min-height:35px}.bar.loss{background:#a1532d}.wf span{font-size:11px;color:#6f7a82;text-align:center}.wf b{font-size:12px;text-align:center}
-.driver{padding:13px 0;border-bottom:1px solid #e8e1d8;display:flex;justify-content:space-between;gap:15px}.driver b{color:#a1532d}.note{margin-top:16px;background:#17324d;color:#fff;padding:17px}.note p{color:#d5e1ea;font-size:12px;line-height:1.5}
-@media(max-width:900px){.summary{grid-template-columns:1fr 1fr}.layout{grid-template-columns:1fr}}@media(max-width:560px){.summary{grid-template-columns:1fr}}
-</style></head><body><div class="wrap">
-<div class="topnav"><div class="navleft"><a class="navbtn home" href="../../../">⌂ Home</a><a class="navbtn back" href="../">← Voltar ao case</a></div><div class="brandmark">G. Moreira Consultoria</div></div>
-<div class="header"><div><div class="eyebrow">NEXA OPERAÇÕES · BOARD FINANCEIRO</div><h1>Gestão de Contratos e Custos</h1><div class="muted">Uma leitura de margem, desvio e recuperação financeira.</div></div><div class="muted">Fechamento · AGO/2026</div></div>
-<div class="summary"><div class="s hero"><small>CUSTO REALIZADO</small><b>R$ 8,93 mi</b></div><div class="s"><small>ORÇAMENTO</small><b>R$ 8,40 mi</b></div><div class="s"><small>MARGEM</small><b>14,7%</b></div><div class="s"><small>RECUPERAÇÃO</small><b>R$ 412 mil</b></div></div>
-<div class="layout"><div class="panel"><h2>Ponte de desvio do mês</h2><div class="muted">Do orçamento ao custo realizado</div><div class="waterfall"><div class="wf"><div class="bar" style="height:72%"></div><b>R$ 8,40 mi</b><span>Orçamento</span></div><div class="wf"><div class="bar loss" style="height:28%"></div><b>+184 mil</b><span>Horas extras</span></div><div class="wf"><div class="bar loss" style="height:21%"></div><b>+129 mil</b><span>Terceiros</span></div><div class="wf"><div class="bar loss" style="height:19%"></div><b>+117 mil</b><span>Insumos</span></div><div class="wf"><div class="bar" style="height:82%"></div><b>R$ 8,93 mi</b><span>Realizado</span></div></div><h2 style="margin-top:24px">Tendência de custo</h2><div class="chart"><canvas id="nexaChart"></canvas></div></div>
-<div class="panel"><h2>Pressões sobre a margem</h2><div class="driver"><span>CTR-011 · Operação Metropolitana</span><b>+14,9%</b></div><div class="driver"><span>CTR-004 · Centro Logístico</span><b>+13,1%</b></div><div class="driver"><span>CTR-007 · Rede Hospitalar</span><b>+6,2%</b></div><div class="driver"><span>CTR-002 · Operação Predial</span><b>+4,1%</b></div><div class="note"><b>Leitura executiva</b><p>58% do desvio está concentrado em 3 contratos. O ganho potencial não está distribuído de forma uniforme.</p></div></div></div></div>
+<div class="topnav">
+  <div class="navleft">
+    <a class="navbtn home" href="../../../">⌂ Home</a>
+    <a class="navbtn back" href="../">← Voltar ao case</a>
+  </div>
+  <div class="brandmark">G. Moreira Consultoria</div>
+</div>
+
+<div class="header">
+  <div>
+    <div class="eyebrow">Nexa Operações · Controle Financeiro de Contratos</div>
+    <h1>Margem, Desvio e Recuperação</h1>
+    <div class="muted">Leitura executiva para identificar onde o resultado está sendo pressionado e onde agir.</div>
+  </div>
+  <div class="period">Competência: <b>Ago/2026</b></div>
+</div>
+
+<div class="hero">
+  <div class="card">
+    <div class="muted">Margem operacional consolidada</div>
+    <div class="big">14,7%</div>
+    <div class="muted">2,1 p.p. abaixo da meta da carteira</div>
+  </div>
+  <div class="heroRight">
+    <div class="metric"><span>Orçamento</span><b>R$ 8,40 mi</b></div>
+    <div class="metric"><span>Realizado</span><b>R$ 8,93 mi</b></div>
+    <div class="metric"><span>Desvio</span><b style="color:var(--bad)">R$ 530 mil</b></div>
+    <div class="metric"><span>Recuperação potencial</span><b style="color:var(--cyan)">R$ 412 mil</b></div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="card">
+    <div class="sectionTitle"><h2>Ponte do desvio no mês</h2><div class="chips"><span class="chip">Orçamento</span><span class="chip">Pressões</span><span class="chip">Realizado</span></div></div>
+    <div class="bridge">
+      <div class="bitem"><div class="bbar" style="height:72%"></div><b>R$ 8,40 mi</b><span>Orçamento</span></div>
+      <div class="bitem"><div class="bbar neg" style="height:32%"></div><b>+184 mil</b><span>Horas extras</span></div>
+      <div class="bitem"><div class="bbar neg" style="height:24%"></div><b>+129 mil</b><span>Terceiros</span></div>
+      <div class="bitem"><div class="bbar neg" style="height:21%"></div><b>+117 mil</b><span>Insumos</span></div>
+      <div class="bitem"><div class="bbar pos" style="height:81%"></div><b>R$ 8,93 mi</b><span>Realizado</span></div>
+    </div>
+    <div style="height:250px;margin-top:20px"><canvas id="nexaTrend"></canvas></div>
+  </div>
+
+  <div>
+    <div class="card">
+      <div class="sectionTitle"><h2>Contratos que mais pressionam a margem</h2></div>
+      <div class="contracts">
+        <div class="contract"><div class="contractTop"><b>CTR-011 · Operação Metropolitana</b><strong>+14,9%</strong></div><small>Principal vetor: horas extras e terceiros</small><div class="progress"><div class="fill" style="width:92%"></div></div></div>
+        <div class="contract"><div class="contractTop"><b>CTR-004 · Centro Logístico</b><strong>+13,1%</strong></div><small>Principal vetor: insumos e manutenção emergencial</small><div class="progress"><div class="fill" style="width:81%"></div></div></div>
+        <div class="contract"><div class="contractTop"><b>CTR-007 · Rede Hospitalar</b><strong>+6,2%</strong></div><small>Principal vetor: cobertura extra e substituições</small><div class="progress"><div class="fill" style="width:58%"></div></div></div>
+        <div class="contract"><div class="contractTop"><b>CTR-002 · Operação Predial</b><strong>+4,1%</strong></div><small>Margem abaixo da meta, porém recuperável</small><div class="progress"><div class="fill" style="width:44%"></div></div></div>
+      </div>
+    </div>
+    <div class="insight"><small>LEITURA EXECUTIVA</small><h3>58% do desvio está em 3 contratos</h3><p>O ganho potencial está concentrado. A gestão não precisa atacar toda a carteira, e sim os poucos contratos com maior impacto e maior recuperabilidade.</p></div>
+  </div>
+</div>
+<div class="footer">Dados fictícios · Case demonstrativo</div>
+</div>
 <script>
-new Chart(document.getElementById('nexaChart'),{data:{labels:['Mar','Abr','Mai','Jun','Jul','Ago'],datasets:[{type:'bar',label:'Realizado',data:[7.91,8.02,8.24,8.46,8.59,8.93],backgroundColor:'rgba(161,83,45,.68)',borderRadius:5},{type:'line',label:'Orçamento',data:[7.85,7.96,8.08,8.19,8.28,8.40],borderColor:'#17324d',borderWidth:2.2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#6f7a82'}}},scales:{x:{grid:{display:false},ticks:{color:'#6f7a82'}},y:{grid:{color:'#e6e0d7'},ticks:{color:'#6f7a82'}}}}});
-</script></body></html>
+new Chart(document.getElementById('nexaTrend'),{
+  data:{labels:['Mar','Abr','Mai','Jun','Jul','Ago'],datasets:[
+    {type:'bar',label:'Custo realizado',data:[7.91,8.02,8.24,8.46,8.59,8.93],backgroundColor:'rgba(77,225,212,.50)',borderRadius:5},
+    {type:'line',label:'Orçamento',data:[7.85,7.96,8.08,8.19,8.28,8.40],borderColor:'#4fb3ff',borderWidth:2.2,tension:.25}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#8da2b8'}}},scales:{x:{grid:{display:false},ticks:{color:'#8da2b8'}},y:{grid:{color:'#152437'},ticks:{color:'#8da2b8'}}}}
+});
+</script>
+</body></html>
