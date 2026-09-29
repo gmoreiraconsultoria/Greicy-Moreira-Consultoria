@@ -1,9 +1,35 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Atlas Facilities</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Atlas Facilities | Command Center</title><script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#07111f;color:#eaf1f8;font:14px Arial}.w{max-width:1450px;margin:auto;padding:24px}a{color:#4fb3ff;text-decoration:none}header{display:flex;justify-content:space-between;gap:20px;margin:16px 0 20px}h1{margin:4px 0}.muted{color:#8ca0b8}.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:14px}.p,.k{background:#0b1626;border:1px solid #1b2b42;border-radius:18px;padding:20px}.big{font-size:48px;font-weight:800}.alert{border-left:4px solid #ff6b6b}.ks{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0}.k b{display:block;font-size:27px;margin:7px 0}.grid{display:grid;grid-template-columns:1.3fr .7fr;gap:14px}.chart{height:300px}.item{padding:12px;border:1px solid #1b2b42;border-radius:12px;margin:8px 0;background:#091421}@media(max-width:850px){.hero,.grid{grid-template-columns:1fr}.ks{grid-template-columns:1fr 1fr}}
-</style></head><body><div class="w"><a href="../">← Voltar ao case</a><header><div><div class="muted">ATLAS FACILITIES · COMMAND CENTER</div><h1>Inteligência Operacional e Contratos</h1><div class="muted">Resultado, cobertura, glosa e criticidade</div></div><b>AGO/2026</b></header>
-<div class="hero"><div class="p"><div class="muted">Resultado realizado</div><div class="big">R$ 11,47 mi</div><div class="muted">96,9% do contratado</div></div><div class="p alert"><b>ALERTA EXECUTIVO</b><h2>2 contratos concentram 31% da glosa</h2><div class="muted">Faltas e menor cobertura explicam a maior parte do desvio.</div></div></div>
-<div class="ks"><div class="k"><span class="muted">Contratado</span><b>R$ 11,83 mi</b></div><div class="k"><span class="muted">Glosa</span><b>R$ 358 mil</b></div><div class="k"><span class="muted">Cobertura</span><b>97,2%</b></div><div class="k"><span class="muted">SLA</span><b>94,8%</b></div></div>
-<div class="grid"><div class="p"><h3>Execução financeira</h3><div class="chart"><canvas id="c"></canvas></div></div><div class="p"><h3>Fila de atenção</h3><div class="item"><b>Rede Mercado Carioca</b><div class="muted">R$ 71 mil de glosa</div></div><div class="item"><b>Rede Alfa Educação</b><div class="muted">Faltas acima da média</div></div><div class="item"><b>LogRio Operações</b><div class="muted">Queda no SLA</div></div></div></div></div>
-<script>new Chart(c,{data:{labels:['Mar','Abr','Mai','Jun','Jul','Ago'],datasets:[{type:'bar',label:'Realizado',data:[10.88,10.96,11.09,11.21,11.16,11.47],backgroundColor:'rgba(77,225,212,.6)'},{type:'line',label:'Contratado',data:[11.2,11.3,11.45,11.6,11.72,11.83],borderColor:'#4fb3ff'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#8ca0b8'}}},scales:{x:{ticks:{color:'#8ca0b8'},grid:{display:false}},y:{ticks:{color:'#8ca0b8'},grid:{color:'#152234'}}}}})</script></body></html>
+
+:root{
+  --brand-bg:#07111f;--brand-panel:#0b1626;--brand-border:#1b2b42;
+  --brand-text:#edf4fb;--brand-muted:#8fa4b9;--brand-accent:#4fb3ff;
+}
+.topnav{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+.navleft{display:flex;gap:8px;flex-wrap:wrap}
+.navbtn{display:inline-block;text-decoration:none;font-size:12px;font-weight:800;padding:8px 11px;border-radius:9px}
+.navbtn.home{background:var(--brand-accent);color:#04101c}
+.navbtn.back{border:1px solid var(--brand-border);color:var(--brand-accent);background:rgba(255,255,255,.02)}
+.brandmark{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--brand-muted)}
+
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 85% 0%,#10233a 0,#07111f 33%,#050b13 100%);color:#edf4fb;font-family:Inter,Arial,sans-serif}
+.wrap{max-width:1480px;margin:auto;padding:24px}.header{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:18px}
+.header h1{font-size:32px;margin:4px 0 5px;letter-spacing:-.03em}.muted{color:#8fa4b9}.period{font-size:12px;color:#8fa4b9}
+.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:14px}.card{background:linear-gradient(180deg,#0d1a2c,#091320);border:1px solid #1b2b42;border-radius:18px;padding:20px}
+.big{font-size:50px;font-weight:800;letter-spacing:-.04em;margin:7px 0}.alert{border-left:4px solid #ff6b6b}.alert small{color:#ff6b6b;font-weight:800;letter-spacing:.12em}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0}.kpi{background:#0a1422;border:1px solid #1b2b42;border-radius:15px;padding:17px}.kpi span{display:block;color:#8fa4b9;font-size:11px}.kpi b{display:block;font-size:27px;margin:7px 0}
+.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}.chart{height:300px}.list{display:grid;gap:9px}.item{background:#091421;border:1px solid #1b2b42;border-radius:12px;padding:12px}.item b{font-size:13px}.item span{display:block;color:#8fa4b9;font-size:12px;margin-top:3px}
+.footer{text-align:right;color:#627991;font-size:10px;margin-top:14px}
+@media(max-width:900px){.hero,.grid{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}}@media(max-width:560px){.kpis{grid-template-columns:1fr}}
+</style></head><body><div class="wrap">
+<div class="topnav"><div class="navleft"><a class="navbtn home" href="../../../">⌂ Home</a><a class="navbtn back" href="../">← Voltar ao case</a></div><div class="brandmark">G. Moreira Consultoria</div></div>
+<div class="header"><div><div class="muted" style="font-size:11px;letter-spacing:.14em">ATLAS FACILITIES · COMMAND CENTER</div><h1>Inteligência Operacional e Contratos</h1><div class="muted">Resultado financeiro, cobertura e criticidade em uma leitura única.</div></div><div class="period">AGO/2026</div></div>
+<div class="hero"><div class="card"><div class="muted">Resultado financeiro realizado</div><div class="big">R$ 11,47 mi</div><div class="muted">96,9% do valor contratado no mês</div></div><div class="card alert"><small>ALERTA EXECUTIVO</small><h2>2 contratos concentram 31% da glosa</h2><div class="muted">Faltas e menor cobertura explicam a maior parte do desvio.</div></div></div>
+<div class="kpis"><div class="kpi"><span>Valor contratado</span><b>R$ 11,83 mi</b><span>Base mensal</span></div><div class="kpi"><span>Glosa</span><b>R$ 358 mil</b><span>3,0% do contratado</span></div><div class="kpi"><span>Cobertura</span><b>97,2%</b><span>-0,7 p.p.</span></div><div class="kpi"><span>SLA médio</span><b>94,8%</b><span>+0,9 p.p.</span></div></div>
+<div class="grid"><div class="card"><h3>Execução financeira mensal</h3><div class="chart"><canvas id="atlasChart"></canvas></div></div><div class="card"><h3>Fila de atenção</h3><div class="list"><div class="item"><b>Rede Mercado Carioca</b><span>R$ 71 mil de glosa e cobertura abaixo de 96%</span></div><div class="item"><b>Rede Alfa Educação</b><span>Faltas acima da média e pressão em horas extras</span></div><div class="item"><b>LogRio Operações</b><span>Queda de 2,1 p.p. no SLA</span></div></div></div></div>
+<div class="footer">Dados fictícios · Case demonstrativo</div></div>
+<script>
+new Chart(document.getElementById('atlasChart'),{data:{labels:['Mar','Abr','Mai','Jun','Jul','Ago'],datasets:[{type:'bar',label:'Realizado',data:[10.88,10.96,11.09,11.21,11.16,11.47],backgroundColor:'rgba(77,225,212,.60)',borderRadius:6},{type:'line',label:'Contratado',data:[11.2,11.3,11.45,11.6,11.72,11.83],borderColor:'#4fb3ff',tension:.28,borderWidth:2.2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#8fa4b9'}}},scales:{x:{grid:{display:false},ticks:{color:'#8fa4b9'}},y:{grid:{color:'#152234'},ticks:{color:'#8fa4b9'}}}}});
+</script></body></html>

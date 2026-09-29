@@ -8,7 +8,7 @@
 :root{--bg:#060d16;--panel:#0b1626;--border:#1b2b42;--text:#eef4fb;--muted:#8da0b6;--accent:#4fb3ff}
 *{box-sizing:border-box}
 body{margin:0;background:radial-gradient(circle at 78% 0%,rgba(79,179,255,.13),transparent 24%),linear-gradient(180deg,#06101c 0%,#050b13 100%);color:var(--text);font-family:Inter,Arial,sans-serif;line-height:1.5}
-.wrap{max-width:1180px;margin:auto;padding:0 28px}.back{display:inline-block;margin-top:22px;color:var(--accent);text-decoration:none;font-size:13px}
+.wrap{max-width:1180px;margin:auto;padding:0 28px}.caseNav{display:flex;gap:10px;align-items:center;margin-top:22px;flex-wrap:wrap}.back,.homeBtn{display:inline-block;text-decoration:none;font-size:13px;padding:8px 11px;border-radius:9px}.back{color:var(--accent);border:1px solid var(--border)}.homeBtn{color:#06111d;background:var(--accent);font-weight:800}
 nav{height:72px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.06)}.logo{font-weight:800}.logo span{color:var(--accent)}.meta{color:var(--muted);font-size:12px}
 .hero{padding:78px 0 56px;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}.kicker{font-size:12px;text-transform:uppercase;letter-spacing:.16em;color:var(--accent);font-weight:800}
 h1{font-size:53px;line-height:1.04;letter-spacing:-.045em;margin:14px 0 20px}.lead{color:#a8b7c8;font-size:18px}
@@ -25,7 +25,7 @@ h1{font-size:53px;line-height:1.04;letter-spacing:-.045em;margin:14px 0 20px}.le
 </head>
 <body>
 <div class="wrap">
-<a class="back" href="../../">← Voltar aos cases</a>
+<div class="caseNav"><a class="homeBtn" href="../../">⌂ Home</a><a class="back" href="../../#cases">← Todos os cases</a></div>
 <nav><div class="logo">G. Moreira <span>Consultoria</span></div><div class="meta">Gestão | Análise Técnica</div></nav>
 
 <section class="hero">

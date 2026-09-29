@@ -1,9 +1,32 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Vértice Serviços</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vértice Serviços | Pessoas e Operação</title><script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#f5f1f7;color:#2e2633;font-family:Arial}.w{max-width:1380px;margin:auto;padding:28px}a{color:#705c8e;text-decoration:none;font-size:12px}.head{padding:20px 0}.kicker{color:#705c8e;font-size:11px;letter-spacing:.14em;font-weight:700}h1{font-size:36px;margin:7px 0}.muted{color:#7f7486}.hero{display:grid;grid-template-columns:1fr 1fr;gap:14px}.p,.k{background:white;border:1px solid #e5dfea;border-radius:20px;padding:20px}.primary{background:linear-gradient(135deg,#705c8e,#8b739f);color:white}.primary .muted{color:#e8dfee}.big{font-size:48px;font-weight:800}.ks{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0}.k b{display:block;font-size:26px;margin-top:7px}.content{display:grid;grid-template-columns:1fr 1fr;gap:14px}.chart{height:280px}.band{background:#faf8fb;border:1px solid #e5dfea;border-radius:12px;padding:12px;margin:8px 0;display:flex;justify-content:space-between}.risk{color:#b66d82;font-weight:800}@media(max-width:850px){.hero,.content{grid-template-columns:1fr}.ks{grid-template-columns:1fr 1fr}}
-</style></head><body><div class="w"><a href="../">← Voltar ao case</a><div class="head"><div class="kicker">VÉRTICE SERVIÇOS · PEOPLE ANALYTICS</div><h1>Pessoas, Absenteísmo e Cobertura</h1><div class="muted">Ausências, horas extras e impacto operacional</div></div>
-<div class="hero"><div class="p primary"><div class="muted">Taxa de absenteísmo</div><div class="big">4,8%</div><div class="muted">Meta: 3,9%</div></div><div class="p"><div class="kicker" style="color:#b66d82">PONTO DE ATENÇÃO</div><h2>5 equipes concentram 41% das ausências</h2><div class="muted">A concentração está elevando cobertura emergencial e horas extras.</div></div></div>
-<div class="ks"><div class="k"><span class="muted">Cobertura</span><b>96,1%</b></div><div class="k"><span class="muted">Horas extras</span><b>1.246 h</b></div><div class="k"><span class="muted">Afastamentos</span><b>37</b></div><div class="k"><span class="muted">Equipes críticas</span><b>5</b></div></div>
-<div class="content"><div class="p"><h3>Evolução do absenteísmo</h3><div class="chart"><canvas id="c"></canvas></div></div><div class="p"><h3>Concentração por equipe</h3><div class="band"><span>Hospitalar A<br><small class="muted">Absenteísmo 6,7%</small></span><span class="risk">312 h HE</span></div><div class="band"><span>Educacional B<br><small class="muted">Cobertura 93,8%</small></span><span class="risk">228 h HE</span></div><div class="band"><span>Predial C<br><small class="muted">Absenteísmo 5,9%</small></span><b>184 h HE</b></div></div></div></div>
-<script>new Chart(c,{type:'bar',data:{labels:['Mar','Abr','Mai','Jun','Jul','Ago'],datasets:[{label:'Absenteísmo',data:[3.6,3.9,4.1,4.4,4.5,4.8],backgroundColor:'rgba(112,92,142,.72)'},{type:'line',label:'Meta',data:[3.9,3.9,3.9,3.9,3.9,3.9],borderColor:'#b66d82'}]},options:{responsive:true,maintainAspectRatio:false}})</script></body></html>
+
+:root{
+  --brand-bg:#07111f;--brand-panel:#0b1626;--brand-border:#1b2b42;
+  --brand-text:#edf4fb;--brand-muted:#8fa4b9;--brand-accent:#4fb3ff;
+}
+.topnav{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+.navleft{display:flex;gap:8px;flex-wrap:wrap}
+.navbtn{display:inline-block;text-decoration:none;font-size:12px;font-weight:800;padding:8px 11px;border-radius:9px}
+.navbtn.home{background:var(--brand-accent);color:#04101c}
+.navbtn.back{border:1px solid var(--brand-border);color:var(--brand-accent);background:rgba(255,255,255,.02)}
+.brandmark{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--brand-muted)}
+
+*{box-sizing:border-box}body{margin:0;background:#f6f3f8;color:#2e2633;font-family:Inter,Arial,sans-serif}.wrap{max-width:1400px;margin:auto;padding:28px}.topnav .brandmark{color:#7f7486}
+.header{padding:12px 0 18px}.kicker{color:#705c8e;font-size:11px;letter-spacing:.14em;font-weight:800}.header h1{font-size:36px;margin:7px 0 6px}.muted{color:#7f7486}
+.hero{display:grid;grid-template-columns:.9fr 1.1fr;gap:14px}.panel{background:#fff;border:1px solid #e5dfea;border-radius:20px;padding:20px}.primary{background:linear-gradient(135deg,#705c8e,#8d75a1);color:#fff}.primary .muted{color:#e8dfee}.big{font-size:49px;font-weight:800}
+.impact{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}.impact div{background:#fff;border:1px solid #e5dfea;border-radius:14px;padding:15px}.impact b{display:block;font-size:23px}.impact span{color:#7f7486;font-size:11px}
+.content{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;margin-top:14px}.chart{height:285px}
+.risklist{display:grid;gap:9px}.risk{border:1px solid #e5dfea;background:#fbf9fc;border-radius:12px;padding:12px;display:flex;justify-content:space-between;gap:15px}.risk b{font-size:13px}.risk strong{color:#b66d82}
+@media(max-width:900px){.hero,.content{grid-template-columns:1fr}.impact{grid-template-columns:1fr}}
+</style></head><body><div class="wrap">
+<div class="topnav"><div class="navleft"><a class="navbtn home" href="../../../">⌂ Home</a><a class="navbtn back" href="../">← Voltar ao case</a></div><div class="brandmark">G. Moreira Consultoria</div></div>
+<div class="header"><div class="kicker">VÉRTICE SERVIÇOS · PESSOAS & OPERAÇÃO</div><h1>Absenteísmo, Cobertura e Impacto Operacional</h1><div class="muted">O indicador de pessoas conectado ao custo e à execução.</div></div>
+<div class="hero"><div class="panel primary"><div class="muted">Taxa de absenteísmo</div><div class="big">4,8%</div><div class="muted">0,9 p.p. acima da meta</div></div><div class="panel"><div class="kicker" style="color:#b66d82">LEITURA GERENCIAL</div><h2>5 equipes concentram 41% das ausências</h2><div class="muted">A concentração está pressionando cobertura e gerando 53% das horas extras do mês.</div></div></div>
+<div class="impact"><div><span>Cobertura</span><b>96,1%</b></div><div><span>Horas extras</span><b>1.246 h</b></div><div><span>Afastamentos ativos</span><b>37</b></div></div>
+<div class="content"><div class="panel"><h3>Absenteísmo x horas extras</h3><div class="chart"><canvas id="verticeChart"></canvas></div></div><div class="panel"><h3>Equipes com maior impacto operacional</h3><div class="risklist"><div class="risk"><div><b>Hospitalar A</b><div class="muted">Absenteísmo 6,7%</div></div><strong>312 h HE</strong></div><div class="risk"><div><b>Educacional B</b><div class="muted">Cobertura 93,8%</div></div><strong>228 h HE</strong></div><div class="risk"><div><b>Predial C</b><div class="muted">Absenteísmo 5,9%</div></div><strong>184 h HE</strong></div><div class="risk"><div><b>Logística D</b><div class="muted">Absenteísmo 5,4%</div></div><strong>153 h HE</strong></div></div></div></div></div>
+<script>
+new Chart(document.getElementById('verticeChart'),{data:{labels:['Mar','Abr','Mai','Jun','Jul','Ago'],datasets:[{type:'bar',label:'Horas extras',data:[780,844,928,1026,1110,1246],backgroundColor:'rgba(112,92,142,.68)',yAxisID:'y'},{type:'line',label:'Absenteísmo %',data:[3.6,3.9,4.1,4.4,4.5,4.8],borderColor:'#b66d82',yAxisID:'y1',tension:.25}]},options:{responsive:true,maintainAspectRatio:false,scales:{y:{position:'left',grid:{color:'#eee8f2'}},y1:{position:'right',grid:{drawOnChartArea:false},ticks:{callback:v=>v+'%'}}}}});
+</script></body></html>
