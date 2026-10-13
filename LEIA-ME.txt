@@ -1,0 +1,8 @@
+Urbaniza V2.1 — pacote de atualização exclusivo do produto de limpeza urbana.
+Destino: Greicy-Moreira-Consultoria/solucoes/urbaniza/
+Substitua os arquivos desta pasta no repositório. NÃO substitua o index.html da raiz nem a pasta cases.
+Alterações: mapa-base ArcGIS/Esri para demonstração (sem chave exigida no cliente); tratamento de falha de mapa-base; proteção básica de importação e armazenamento; adaptação para telas menores.
+Este é protótipo e depende de Internet para Leaflet e mapas. Camadas do HUB são cópias demonstrativas; suas referências de logradouros são pontos, não eixos de ruas.
+A importação GeoJSON aceita LineString/MultiLineString e exige análise de origem, licença e qualidade dos dados.
+Antes da exploração comercial revisar termos, limites e atribuições do provedor Esri/ArcGIS. Nenhuma garantia de serviço gratuito ilimitado.
+Os cadastros ficam somente no navegador. Faça backup via Exportar projeto (JSON).
