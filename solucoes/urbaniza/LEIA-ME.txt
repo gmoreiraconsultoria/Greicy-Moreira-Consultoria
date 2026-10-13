@@ -1,16 +1,8 @@
-Urbaniza | Cadastro Territorial Inteligente V2
-
-Protótipo demonstrativo independente do HUB COMLURB.
-Publicado como subpasta do repositório da G. Moreira Consultoria.
-Abrir: https://gmoreiraconsultoria.github.io/Greicy-Moreira-Consultoria/urbaniza/ (se GitHub Pages estiver configurado para main/raiz).
-
-IMPORTANTES LIMITAÇÕES
-- Camadas do Rio são cópias demonstrativas e não servem como cadastro de todos os eixos viários.
-- Registros de cadastro ficam localmente no navegador; exporte o projeto frequentemente.
-- Não há autenticação, base multiusuário ou backup de servidor.
-- Serviço de mapa-base de terceiro: sujeita a disponibilidade/licença para uso público e comercial.
-- Evite publicar dados operacionais sigilosos, pessoais ou sensíveis neste site público.
-- Nenhuma alteração no HUB COMLURB é necessária.
-
-PUBLICAÇÃO
-Abra o repositório no GitHub, faça upload do index.html alterado na raiz e da pasta urbaniza/ mantendo data/*.geojson. O pacote completo deste ZIP já contém a estrutura pronta.
+Urbaniza V2.1 — pacote de atualização exclusivo do produto de limpeza urbana.
+Destino: Greicy-Moreira-Consultoria/solucoes/urbaniza/
+Substitua os arquivos desta pasta no repositório. NÃO substitua o index.html da raiz nem a pasta cases.
+Alterações: mapa-base ArcGIS/Esri para demonstração (sem chave exigida no cliente); tratamento de falha de mapa-base; proteção básica de importação e armazenamento; adaptação para telas menores.
+Este é protótipo e depende de Internet para Leaflet e mapas. Camadas do HUB são cópias demonstrativas; suas referências de logradouros são pontos, não eixos de ruas.
+A importação GeoJSON aceita LineString/MultiLineString e exige análise de origem, licença e qualidade dos dados.
+Antes da exploração comercial revisar termos, limites e atribuições do provedor Esri/ArcGIS. Nenhuma garantia de serviço gratuito ilimitado.
+Os cadastros ficam somente no navegador. Faça backup via Exportar projeto (JSON).
